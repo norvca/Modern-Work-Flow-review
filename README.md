@@ -1,13 +1,15 @@
 # Modern-Work-Flow-review
 
-##  获取 html 案例
+##  00 获取 html 案例
 1. `git clone` 克隆别人的项目到本地
 2. `git remote set-url origin <your repo url>` 修改远程仓库地址为你自己的仓库地址
 3. `git remote -v` 验证远程 url 是否为你自己的仓库地址
 
 
 
-## node入门
+
+
+## 01 node入门
 
 ### node.js 是什么？
 
@@ -45,7 +47,9 @@ node.js 是一个 JavaScript 运行环境
 
 
 
-##  npm 入门
+
+
+##  02 npm 入门
 
 ### npm 是什么？
 
@@ -61,7 +65,9 @@ npm 是 node 模块管理器，有了它我们可以直接安装使用别人写�
 
 
 
-## gulp 入门
+
+
+## 03 gulp 入门
 
 ### gulp是什么？
 
@@ -78,15 +84,40 @@ gulp 是一个自动化的构建工具， 它可以让不同的 gulp 插件按�
    ```js
    var gulp = require('gulp');
 
-   gulp.task('default', function() {
-     // place code for your default task here
-   });
+   gulp.task('html', function() {
+     return gulp.src('./inner/goods') // 文件输入
+       .pipe(// do something...)
+       .pipe(gulp.dest('./outer/goods')) // 文件输出
+   })
+
    ```
 
    ​
 
-   ​
+
+
+## 04 postcss 入门
+
+postcss 是一个利用 js 插件来处理 css 的工具， 利用 postcss 里的插件可以实现为 css 自动添加浏览器前缀，支持变量、转换未来 css 语法等功能。在这个项目里配合 gulp 来构建自动化。
+
+### 使用方法
+
+`npm install gulp-postcss --save-dev` 安装 postcss，然后根据情况安装 postcss 插件
+
+### 项目中用到了的 postcss插件
+
+`autoprifixer`：自动添加浏览器前缀
+
+`postcss-simple-vars`：给 css 设置变量名
+
+`postcss-nested`：可以以嵌套的方式写 css 
+
+`postcss-import`： @import 规则解析成内联代码
 
 
 
+## 05 css 如何实现组件化？
+
+1. 在 style.css 里通过 @import 方法导入各模块的 css 文件
+2. 通过 postcss-import 解析 style.css 里的 @import 文件，生成 css 代码
 
