@@ -351,5 +351,54 @@ img {
 }
 
 .large-hero {
-  display: none;
+  position: relative;
 }
+
+.large-hero__text-content {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+
+.large-hero__title {
+    font-weight: 300;
+    font-size: 4.8rem;
+    color: #2f5572;
+    margin: 0;
+  }
+
+.large-hero__subtitle {
+    font-weight: 300;
+    font-size: 2.9rem;
+    color: #2f5572;
+    margin: 0;
+  }
+
+.large-hero__description {
+    color: #fff;
+    font-size: 1.875rem;
+    font-weight: 100;
+    max-width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 2px 2px 0 rgba(0,0,0, .1)
+  }
+
+.btn {
+  background-color: #2f5572;
+  color: #fff;
+  padding: .75rem 1.2rem;
+  text-decoration: none;
+}
+
+.btn--orange {
+    background-color: #d59541;
+  }
+
+.btn--large {
+    padding: 1.1rem 1.9rem;
+  }

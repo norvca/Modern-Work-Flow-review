@@ -4,7 +4,8 @@ postcss = require('gulp-postcss'),
 autoprefixer = require('autoprefixer'),
 cssvars = require('postcss-simple-vars'),
 nested = require('postcss-nested'),
-cssimport = require('postcss-import');
+cssimport = require('postcss-import'),
+browserSync = require('browser-sync').create();
 
 gulp.task('default', function() {
 
@@ -21,16 +22,27 @@ gulp.task('style', function() {
 })
 
 gulp.task('watch', function() {
+
+  browserSync.init({
+    server:{
+      baseDir: 'app'
+    }
+  })
+
   // 监听 html 文件
   watch('./app/index.html', function() {
-    gulp.start('html');
+    browserSync.reload();
   })
 
   // 监听 css 文件
   watch('./app/assets/styles/**/*', function() {
-    gulp.start('style');
+    gulp.start('cssInject');
   })
 
 })
 
+gulp.task('cssInject', ['style'],function() {
+  return gulp.src('./app/temp/styles/styles.css')
+    .pipe(browserSync.stream());
+})
 
