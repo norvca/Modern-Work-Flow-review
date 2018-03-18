@@ -3,6 +3,7 @@
 
 
   &__text-content {
+    color: $mainBlu1;
     position: absolute;
     left: 0;
     top: 50%;

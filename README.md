@@ -114,7 +114,32 @@ postcss 是一个利用 js 插件来处理 css 的工具， 利用 postcss 里�
 
 
 
-### 06 项目中用到了的插件/工具
+## 06 gulp.js 文件实现组件化
+
+在 gulpfile.js 文件里通过 `require('<gulpTaskFile>')` 引入各功能代码
+
+
+
+## 07 处理 gulp 中的报错
+
+gulp-watch 发现代码中的错误后会报错并停止监听，在 gulp 任务中通过监听报错进行处理使其仍能继续监听。
+
+```js
+gulp.task('style', function() {
+  return gulp.src('./app/assets/styles/styles.css')
+    .pipe(postcss([cssimport, autoprefixer, nested, cssvars]))
+    // 监听代码，打印错误原因然后继续
+    .on('error', function(errorInfo) {
+      console.log(errorInfo.toString());
+      this.emit('end');
+    })
+    .pipe(gulp.dest('./app/temp/styles'));
+});
+```
+
+
+
+## 08 项目中用到的插件/工具
 
 `autoprifixer`：自动添加浏览器前缀
 

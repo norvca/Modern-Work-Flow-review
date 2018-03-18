@@ -355,6 +355,7 @@ img {
 }
 
 .large-hero__text-content {
+    color: #2f5572;
     position: absolute;
     left: 0;
     top: 50%;
