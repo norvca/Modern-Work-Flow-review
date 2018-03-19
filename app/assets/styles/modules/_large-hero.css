@@ -3,7 +3,7 @@
 
 
   &__text-content {
-    color: $mainBlu1;
+    color: $mainBlue;
     position: absolute;
     left: 0;
     top: 50%;
@@ -14,16 +14,40 @@
 
   &__title {
     font-weight: 300;
-    font-size: 4.8rem;
     color: $mainBlue;
     margin: 0;
+    font-size: 1.1rem;
+
+    @mixin atSmall {
+      font-size: 2rem;
+    }
+
+    @mixin atMedium {
+      font-size: 3.2rem;
+    }
+
+    @mixin atLarge {
+      font-size: 4.9rem;
+    }
   }
 
   &__subtitle {
     font-weight: 300;
-    font-size: 2.9rem;
+    font-size: 1.1rem;
     color: $mainBlue;
     margin: 0;
+
+    @mixin atSmall {
+      font-size: 1.3rem;
+    }
+
+    @mixin atMedium {
+      font-size: 1.8rem;
+    }
+
+    @mixin atLarge {
+      font-size: 2.5rem;
+    }
   }
 
   &__description {

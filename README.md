@@ -139,7 +139,29 @@ gulp.task('style', function() {
 
 
 
-## 08 项目中用到的插件/工具
+## 08 利用 html 标签实现图片响应式
+
+1. 利用 `picture` 标签和 `source`  标签的媒体查询功能
+
+   ```js
+   <picture>
+       // 针对不同宽度显示不同图片,可以根据情况选择高分辨率适应
+       <source srcset="images/pic-large.jpg 1920w, images/pic-large-hi-dpi.jpg 3840w" media="(min-width: 1200px)">
+       <source srcset="images/pic-medium.jpg" media="(min-width: 760px)">
+       // 默认显示最小图片
+       <img src="images/pic-small.jpg" alt="small pic">
+   </picture>
+   ```
+
+2. 利用 `img`标签的 srcset 属性
+
+   ```js
+   <img srcset="images/pic-small.jpg 570w, images/pic-medium.jpg 1200w, image/pic-large,jpg 1920w" alt="this is a picture!">
+   ```
+
+
+
+## 99 项目中用到的插件/工具
 
 `autoprifixer`：自动添加浏览器前缀
 
@@ -152,3 +174,5 @@ gulp.task('style', function() {
 `normalize.css`：重定义一些浏览器默认样式，保证各浏览器呈现效果的一致性
 
 `browser-syne`：浏览器同步监听工具
+
+`postcss-mixins`：配合媒体查询做宽度自适应
