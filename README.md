@@ -176,3 +176,9 @@ gulp.task('style', function() {
 `browser-syne`：浏览器同步监听工具
 
 `postcss-mixins`：配合媒体查询做宽度自适应
+
+`gulp-svg-sprite`：制作雪碧图
+
+`gulp-rename`： 重命名文件
+
+`del`：删除文件
