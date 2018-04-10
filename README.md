@@ -182,3 +182,5 @@ gulp.task('style', function() {
 `gulp-rename`： 重命名文件
 
 `del`：删除文件
+
+`gulp-hexrgba`：使 CSS 的 rgba() 属性可以填写色彩的缩写
