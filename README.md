@@ -161,6 +161,108 @@ gulp.task('style', function() {
 
 
 
+
+## 09 webpack 入门 
+
+1. 全局安装 webpack `npm install webpack -g`
+
+2. 配置好 webpack 文件
+
+   ```js
+   var path = require('path')
+
+   module.exports = {
+     // 选择输出文件格式
+     mode: "development",
+     // 打包文件入口
+     entry: "./app/assets/scripts/App.js",
+     // 打包文件出口
+     output: {
+       path: path.resolve(__dirname, "./app/temp/scripts/"),
+       filename: "App.js"
+     }
+   }
+
+   ```
+
+3. 一个简易的 webpack 模块
+
+    创建一个 Person 模块,在 Person.js 模块里
+
+   ```js
+   function Person(name, age) {
+       this.name = name;
+       this.age = age;
+       this.greet = function() {
+   		console.log("Hello! this is " +this.name+ " and I'm " +this.age);
+       }
+   }
+
+   module.exports = Person;
+   ```
+
+   在 App.js 里引入模块
+
+   ```js
+   var Person = require('./<path>/Person');
+
+   var jhon = new Person('jhon', 12);
+   jhon.greet();
+   ```
+
+   
+
+## 10 在 gulp 里集成 webpack
+
+1. 创建新的 gulp task 文件 scripts.js 用于触发 webpack 打包
+
+   ```js
+   var gulp = require('gulp'),
+   webpack = require('webpack')
+
+   gulp.task('scripts', function(callback) {
+     // 引入webpack 配置
+     webpack(require('../../webpack.config.js'), function(err, stats) {
+       if (err) {
+         console.log(err.toString());
+       }
+       console.log(stats.toString());
+       callback();
+     })
+   })
+   ```
+
+2. 在 gulp watch 里监听 js 变化触发 script.js 完成自动打包工作
+
+   ```js
+   gulp.task('watch', function() {
+
+     browserSync.init({
+       server:{
+         baseDir: 'app'
+       }
+     })
+
+     // 监听 js 文件，触发 scriptRefresh 页面刷新任务
+     watch('./app/assets/scripts/**/*.js', function() {
+       gulp.start('scriptsRefresh');
+     })
+   })
+
+   // 开始 scriptRefresh 页面刷新任务前先触发 scripts 打包任务
+   gulp.task('scriptsRefresh', ['scripts'], function() {
+     browserSync.reload();
+   })
+   ```
+
+
+
+## 11 babel入门
+
+
+
+
+
 ## 99 项目中用到的插件/工具
 
 `autoprifixer`：自动添加浏览器前缀
