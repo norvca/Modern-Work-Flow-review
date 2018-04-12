@@ -256,8 +256,31 @@ gulp.task('style', function() {
    ```
 
 
+## 11 如何避免写出面条式的 js 代码?
 
-## 11 babel入门
+分离出事件源(DOM元素)、事件、事件处理函数，不把他们混在一起写。
+
+```js
+class Menu() {
+    // 事件源
+    constructor() {
+        this.menuIcon = $('.menuIcon');
+        event();
+    }
+    
+    // 事件
+    event() {
+        this.menuIcon.click(this.fireTheMenu)
+    }
+    
+    // 事件处理函数
+    fireTheMenu() {
+        console.log("Menu is clicked!")
+    }
+}
+```
+
+
 
 
 
