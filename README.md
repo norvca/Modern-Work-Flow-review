@@ -311,3 +311,5 @@ class Menu() {
 `gulp-hexrgba`：使 CSS 的 rgba() 属性可以填写色彩的缩写
 
 `waypoints`： 页面滑动到某个位置触发效果插件
+
+`jquery-smooth-scroll`： 页面平滑移动插件
