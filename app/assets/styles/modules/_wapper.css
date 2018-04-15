@@ -10,6 +10,10 @@
     max-width: 769px;
   }
 
+  &--narrow {
+    max-width: 470px;
+  }
+
   .wapper {
     padding-left: 0;
     padding-right: 0;
