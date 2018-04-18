@@ -313,3 +313,5 @@ class Menu() {
 `waypoints`： 页面滑动到某个位置触发效果插件
 
 `jquery-smooth-scroll`： 页面平滑移动插件
+
+`gulp-svg2png`：转换 svg 为 png 增强兼容性
