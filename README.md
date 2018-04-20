@@ -315,3 +315,13 @@ class Menu() {
 `jquery-smooth-scroll`： 页面平滑移动插件
 
 `gulp-svg2png`：转换 svg 为 png 增强兼容性
+
+`gulp-imagemin` ：压缩图片尺寸
+
+`gup-uesmin`：将 html 文件里没有优化的 scripts 和 css 文件替换为优化过的版本
+
+`gulp-rev`： 文件版本替换
+
+`gulp-cssnano`：css文件压缩
+
+`gulp-uglify`：js 文件压缩
