@@ -256,7 +256,34 @@ gulp.task('style', function() {
    ```
 
 
-## 11 如何避免写出面条式的 js 代码?
+
+
+##11 babel 的使用
+
+1. 集成 babel 到 webpack 设置里，需要用到 `babel-loader` 及核心组件
+
+   `npm install babel-core babel-loader babel-preset-es2015 --save-dev` 
+
+2. 在 webpack 里添加 babel 模块
+
+   ```js
+     module: {
+       rules: [
+         {
+           loader: 'babel-loader',
+           query: {
+             presets: ['es2015']
+           },
+           test: /\.js$/,
+           exclude: /node_modules/
+         }
+       ]
+     }
+   ```
+
+
+
+## 12 如何避免写出面条式的 js 代码?
 
 分离出事件源(DOM元素)、事件、事件处理函数，不把他们混在一起写。
 
@@ -325,3 +352,5 @@ class Menu() {
 `gulp-cssnano`：css文件压缩
 
 `gulp-uglify`：js 文件压缩
+
+`babel-core / babel-loader / babel-preset-es2015`：转换 es6 代码为 es5代码
